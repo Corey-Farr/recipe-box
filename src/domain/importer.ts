@@ -17,10 +17,13 @@ function instructions(value: unknown): DirectionSection[] {
       return
     }
     if (record(item) && hasType(item['@type'], 'HowToSection')) {
-      const section: DirectionSection = { title: text(item.name), steps: [] }
       const nested = instructions(item.itemListElement)
-      section.steps = nested.flatMap((s) => s.steps)
-      if (section.steps.length) sections.push(section)
+      for (const section of nested) {
+        sections.push({
+          title: [text(item.name), section.title].filter(Boolean).join(' / '),
+          steps: section.steps,
+        })
+      }
       return
     }
     const content =

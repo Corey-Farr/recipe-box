@@ -42,6 +42,30 @@ describe('scaling from immutable original quantities', () => {
   })
 })
 describe('untrusted JSON-LD import', () => {
+  it('preserves nested instruction headings and order', () => {
+    const data = {
+      '@type': 'Recipe',
+      name: 'Layered supper',
+      recipeInstructions: [
+        {
+          '@type': 'HowToSection',
+          name: 'Prepare',
+          itemListElement: [
+            { '@type': 'HowToStep', text: 'Wash everything.' },
+            {
+              '@type': 'HowToSection',
+              name: 'Sauce',
+              itemListElement: [{ '@type': 'HowToStep', text: 'Stir the sauce.' }],
+            },
+          ],
+        },
+      ],
+    }
+    expect(importRecipes([JSON.stringify(data)], '')[0]!.directions).toEqual([
+      { title: 'Prepare', steps: ['Wash everything.'] },
+      { title: 'Prepare / Sauce', steps: ['Stir the sauce.'] },
+    ])
+  })
   const recipe = {
     '@type': ['Thing', 'Recipe'],
     name: 'Soup',

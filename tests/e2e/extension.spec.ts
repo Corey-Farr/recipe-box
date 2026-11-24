@@ -38,6 +38,10 @@ test.beforeEach(async () => {
     ],
   })
   cdp = await context.browser()!.newBrowserCDPSession()
+  // A cold installation may still be registering its action listener. Wait for
+  // the real worker's execution context rather than racing extension startup.
+  const worker = context.serviceWorkers()[0] ?? (await context.waitForEvent('serviceworker'))
+  expect(await worker.evaluate(() => chrome.runtime.id)).toBe(extensionId)
 })
 test.afterEach(async () => {
   await context?.close()

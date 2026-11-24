@@ -162,7 +162,7 @@ On macOS/Linux: `CAPTURE_DOCS=1 npx playwright test tests/e2e/web.spec.ts --grep
 ## Known limits and attribution
 
 - JSON-LD only; no arbitrary visual-page scraper, microdata parser, iframe traversal, OCR, or remote URL proxy. Missing/unsupported metadata can be entered manually.
-- Nested instruction sections currently flatten their inner steps into the enclosing section. HTML embedded in metadata remains literal text for review.
+- Nested instruction sections use `Parent / Child` headings to retain their hierarchy in the editor. HTML embedded in metadata remains literal text for review.
 - The web demo’s import button reads a bundled fixture. Importing an arbitrary site requires the installed extension; the web app cannot read other browser tabs.
 - Browser tests use pinned Chromium on desktop and emulated phone widths. They do not establish Safari, Firefox, physical-device, or screen-reader compatibility.
 - Local persistence is bounded by browser quotas. On read errors the app refuses to overwrite the unreadable collection; enable storage or recover existing browser data and use **Retry storage**. On write errors, keep the draft tab open and retry saving after freeing space.
