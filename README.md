@@ -2,7 +2,9 @@
 
 **Keep the recipe you actually cooked.** Import a recipe, correct the details, scale the ingredients, and save the notes that make it yours. A local-first Vue 3 app and Manifest V3 Chrome extension share the same editor, collection, importer, and scaler.
 
-**Try it in a minute:** install Node.js 22.13+ (24 LTS recommended), run `npm ci` then `npm run dev`, and open **http://127.0.0.1:5173**. Choose **Try a sample import**. No account, API keys, or extension installation needed. This is a local demo; no public deployment exists yet.
+**[Open the live Recipe Box demo](https://corey-farr.github.io/recipe-box/)** and choose **Try a sample import**. No account, API keys, or installation needed. [Download the Chrome extension](https://github.com/Corey-Farr/recipe-box/releases/tag/v1.0.0) for importing recipes from other websites.
+
+To run locally, install Node.js 22.13+ (24 LTS recommended), run `npm ci` then `npm run dev`, and open **http://127.0.0.1:5173**.
 
 ![Recipe Box collection, captured from the working production app](docs/screenshots/collection.png)
 
@@ -54,20 +56,20 @@ On Linux, use `npx playwright install --with-deps chromium` to install browser s
 
 ## Chrome extension
 
-1. Download or locate [recipe-box-1.0.0.zip](release/recipe-box-1.0.0.zip). Extract it into a permanent folder. The extracted root must contain `manifest.json`, `background.js`, `index.html`, and `assets/`.
+1. Download or locate [recipe-box-1.0.0.zip](https://github.com/Corey-Farr/recipe-box/releases/download/v1.0.0/recipe-box-1.0.0.zip). Extract it into a permanent folder. The extracted root must contain `manifest.json`, `background.js`, `index.html`, and `assets/`.
 2. Open `chrome://extensions` in Chrome and enable **Developer mode**.
 3. Choose **Load unpacked** and select that extracted root folder. Pin Recipe Box from the Extensions menu.
-4. Run `npm run dev` in this repository. Open [the recipe fixture](http://127.0.0.1:5173/fixtures/recipes.html) in **Chrome**, with the fixture tab active.
+4. Open [the public recipe fixture](https://corey-farr.github.io/recipe-box/fixtures/recipes.html) in **Chrome**, with the fixture tab active.
 5. Click Recipe Box in Chrome’s toolbar. A full-tab import preview opens. Pick a recipe, review it, and choose **Save recipe**.
 6. Use **All recipes** to browse the extension collection. Bookmark that extension page if you want direct access. The toolbar always starts a new import from the current tab.
 
-Try [the manual fallback fixture](http://127.0.0.1:5173/fixtures/manual.html) next. Chrome’s internal pages and the Chrome Web Store cannot be imported; the app explains the restriction and keeps manual entry available.
+Try [the manual fallback fixture](https://corey-farr.github.io/recipe-box/fixtures/manual.html) next. Chrome’s internal pages and the Chrome Web Store cannot be imported; the app explains the restriction and keeps manual entry available.
 
 The preview intentionally opens in a regular tab rather than a transient toolbar popup, so clicking elsewhere does not discard an unsaved draft. Closing or reloading that editor tab still discards an unsaved draft. Updating an unpacked installation: rebuild and package, replace the extracted files, then click **Reload** on the extension card. Keep the same folder and extension identity to retain its local collection.
 
 ## Static deployment
 
-Nothing has been published by this project setup. Deployment requires your own hosting account or repository permissions.
+The demo is deployed on [GitHub Pages](https://corey-farr.github.io/recipe-box/). The extension ZIP is published in [GitHub Releases](https://github.com/Corey-Farr/recipe-box/releases/tag/v1.0.0); it is installed unpacked and is not listed in the Chrome Web Store. The instructions below also support deploying your own copy.
 
 ```sh
 npm ci
@@ -84,7 +86,7 @@ For **GitHub Pages**, a manual-only workflow is included at [`.github/workflows/
 1. Push the repository to your own GitHub repository when you are ready to publish it.
 2. Under **Settings → Pages**, set **Source** to **GitHub Actions**.
 3. Open **Actions → Deploy Recipe Box demo → Run workflow** on the desired branch.
-4. The workflow’s deployment environment reports the real Pages URL. Add it to this README only after that deployment succeeds.
+4. The workflow’s deployment environment reports the Pages URL. For this repository, it is https://corey-farr.github.io/recipe-box/. Rerun the workflow after application changes to update the live demo.
 
 Vite uses relative asset paths (`base: './'`). Browser tests serve the production build at `/recipe-box/` and exercise the sample import there. Use the trailing slash on a subdirectory URL. The app does not use client-side route paths, so no SPA rewrite rule is necessary.
 
@@ -137,7 +139,7 @@ Recipes and notes are stored in `localStorage` under `recipe-box.v1`, scoped to 
 
 ## Verification and showcase
 
-The [verification record](docs/verification.md) distinguishes local runs from checks requiring external access. CI runs the repeatable checks on pushes and pull requests, and retains build and test artifacts. It has not been run on a remote repository yet.
+The [verification record](docs/verification.md) distinguishes local runs from checks requiring external access. CI runs the repeatable checks on pushes and pull requests, and retains build and test artifacts. [Remote CI passed](https://github.com/Corey-Farr/recipe-box/actions/runs/45448686851) for the published application commit.
 
 The extension test extracts the **versioned release zip** into a fresh temporary directory, checks its root manifest, loads it in real Chromium, and triggers the browser extension action. It does not modify permissions or provide pre-extracted recipe data. See the [interview note](docs/interview.md) for the exact boundary.
 

@@ -1,6 +1,6 @@
 # Release verification · 1.0.0
 
-Verified locally on **November 24, 2026**, on Windows with Node.js **22.13.1**, npm **10.9.2**, Playwright **1.65.1**, and its bundled Chromium **159.0.8154.6**. No deployment or remote CI result is claimed.
+Verified locally on **November 24, 2026**, on Windows with Node.js **22.13.1**, npm **10.9.2**, Playwright **1.65.1**, and its bundled Chromium **159.0.8154.6**. Public deployment and remote CI were subsequently verified as recorded below.
 
 ## Checks actually run
 
@@ -60,8 +60,17 @@ Source line endings and ZIP timestamps are normalized for reproducible packaging
 
 ## Not performed
 
-- Public hosting, GitHub publication, remote GitHub Actions execution, and Chrome Web Store submission: no external publication was authorized. The manual deployment workflow and instructions are supplied for the owner.
-- Linux/macOS execution, other browser engines, physical phones, and screen-reader audits: the local runs cover Windows Chromium and emulated phone widths only.
+- Chrome Web Store submission: the extension is distributed as an unpacked ZIP through GitHub Releases.
+- macOS execution, other browser engines, physical phones, and screen-reader audits: local runs cover Windows Chromium; remote CI runs on Ubuntu with Node 24. Phone widths are emulated.
 - No automated physical toolbar mouse click is claimed. The test starts at the browser action API as described above.
 
-No requested local release check remains blocked by the environment. Publishing the static demo under the owner’s account is the remaining external-access step.
+## Public deployment follow-up
+
+Published on November 24, 2026:
+
+- [Public repository](https://github.com/Corey-Farr/recipe-box) and [version 1.0.0 release](https://github.com/Corey-Farr/recipe-box/releases/tag/v1.0.0), including the tested extension ZIP.
+- [Remote CI passed](https://github.com/Corey-Farr/recipe-box/actions/runs/45448686851) on Ubuntu and Node 24 for application commit `cd166a7`.
+- [GitHub Pages deployment succeeded](https://github.com/Corey-Farr/recipe-box/actions/runs/45449533092) on attempt 2. The first attempt could not locate the uploaded Pages artifact; rerunning all jobs succeeded without source changes.
+- [Live app](https://corey-farr.github.io/recipe-box/) was checked in the browser: the sample importer offered recipe candidates, an edited recipe saved, four-to-six serving scaling produced `2¼ cups rice`, and the saved recipe and note persisted after reload. Serving count correctly reset to the original four.
+
+The web demo and downloadable extension are public. Chrome Web Store publication is separate and was not performed.

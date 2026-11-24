@@ -11,4 +11,4 @@ The project includes deterministic fixtures, domain and component tests, product
 
 ## Honest presentation
 
-This is a portfolio project with original sample content, not a claim of production adoption. No user counts, business outcomes, performance improvements, or public deployment are claimed. Use your own hosting URL only after you deploy the static build. Review the code and interview notes before presenting implementation decisions as your own work.
+This is a portfolio project with original sample content, not a claim of production adoption. The [public demo](https://corey-farr.github.io/recipe-box/) and [extension release](https://github.com/Corey-Farr/recipe-box/releases/tag/v1.0.0) are available. No user counts, business outcomes, or performance improvements are claimed. Review the code and interview notes before presenting implementation decisions as your own work.
