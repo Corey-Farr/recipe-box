@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Recipe Box",
+  "version": "1.0.0",
+  "description": "Keep the recipe you actually cooked. Import and save recipes locally.",
+  "permissions": ["activeTab", "scripting"],
+  "action": { "default_title": "Import into Recipe Box" },
+  "background": { "service_worker": "background.js" },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwXZ6EwSZm9jEYGTTtOfRbGuNIAh8Od0arxfolOA+8pGxE4ns1pAd9QzNxDb+qVyLdF447s/mgmBb6Olthogsct41xZ1Di9H5FCQ/IR4u5COD7IIS3DkQQKLCDDNQdhbPidZJn+k4ni9nf2qOe84/iu2tqU7N9jOLpzFDwNCk6wYowCyMl13ZiQMMYiKZRvrZM46PxlMaKohnFTnh0UHqRCc0DcDiftoVQ6d9ckuyrAx7v85YjN3vQmkOmByTQj4VgvnXubW7MrbT+FunJHe6Y9t+EaYEES26E/Uf9jq4oOaN/3JDQ3Da2lM+KUDdenw9HYxqwh+o3DXHjWly2y9CxQIDAQAB"
+}

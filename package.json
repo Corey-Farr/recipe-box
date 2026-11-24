@@ -1,0 +1,54 @@
+{
+  "name": "recipe-box",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "build:web": "vite build",
+    "build:extension": "vite build --mode extension && node scripts/extension.mjs",
+    "build": "npm run build:web && npm run build:extension",
+    "package": "node scripts/package.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build && npm run package && npm run test:e2e",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.56.0",
+    "@types/chrome": "^0.1.0",
+    "@types/node": "^22.0.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "eslint": "^9.0.0",
+    "eslint-plugin-vue": "^10.0.0",
+    "fflate": "^0.8.2",
+    "globals": "^16.0.0",
+    "jsdom": "^26.0.0",
+    "prettier": "^3.10.1",
+    "typescript": "~5.9.0",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^7.0.0",
+    "vitest": "^5.1.1",
+    "vue-tsc": "^3.0.0"
+  },
+  "overrides": {
+    "js-beautify": {
+      "glob": "^14.0.2"
+    },
+    "editorconfig": {
+      "minimatch": "^11.0.9"
+    }
+  }
+}

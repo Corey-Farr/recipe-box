@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>
+    Recipe Box import fixture</title
+  ><style>
+    body {
+      font: 18px/1.7 system-ui;
+      max-width: 720px;
+      margin: 60px auto;
+      padding: 24px;
+      color: #214d3c;
+      background: #f6f7f2;
+    }
+    h1 {
+      font-family: Georgia;
+    }
+    a {
+      color: inherit;
+    }
+  </style>
+  <h1>Lemon rice & crispy chickpeas</h1>
+  <p>A deterministic, original recipe fixture for your first extension import.</p>
+  <p>
+    With this tab active, click the Recipe Box extension toolbar button. Choose a recipe, review the
+    preview, then save.
+  </p>
+  <h2>Ingredients · 4 servings</h2>
+  <ul>
+    <li>1½ cups rice</li>
+    <li>2 (14 oz) cans of chickpeas, drained</li>
+    <li>2 tablespoons olive oil</li>
+    <li>1 lemon, zest and juice</li>
+    <li>½ cup chopped parsley</li>
+    <li>salt to taste</li>
+  </ul>
+  <h2>Cook the rice</h2>
+  <p>Rinse the rice. Add 2¼ cups water, simmer covered for 15 minutes, then rest for 10 minutes.</p>
+  <h2>Crisp & finish</h2>
+  <p>
+    Fry the drained, dried chickpeas in oil for 8–10 minutes. Fluff the rice with lemon and parsley;
+    top with chickpeas.
+  </p>
+  <p>
+    This fixture deliberately includes a malformed block before usable metadata and a second recipe
+    for testing selection.
+  </p>
+  <a href="manual.html">Try the manual fallback fixture</a>
+  <script type="application/ld+json">
+    { malformed metadata
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Recipe",
+          "name": "Lemon rice & crispy chickpeas",
+          "recipeYield": "4 servings",
+          "recipeIngredient": [
+            "1½ cups rice",
+            "2 (14 oz) cans of chickpeas, drained",
+            "2 tablespoons olive oil",
+            "1 lemon, zest and juice",
+            "½ cup chopped parsley",
+            "salt to taste"
+          ],
+          "recipeInstructions": [
+            {
+              "@type": "HowToSection",
+              "name": "Cook the rice",
+              "itemListElement": [
+                {
+                  "@type": "HowToStep",
+                  "text": "Rinse the rice. Add 2¼ cups water, simmer covered for 15 minutes, then rest for 10 minutes."
+                }
+              ]
+            },
+            {
+              "@type": "HowToSection",
+              "name": "Crisp & finish",
+              "itemListElement": [
+                {
+                  "@type": "HowToStep",
+                  "text": "Fry the drained, dried chickpeas in oil for 8–10 minutes. Fluff the rice with lemon and parsley; top with chickpeas."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "Recipe",
+          "name": "Quick lemon dressing",
+          "recipeYield": "4 servings",
+          "recipeIngredient": [
+            "3 tablespoons olive oil",
+            "1 tablespoon lemon juice",
+            "salt to taste"
+          ],
+          "recipeInstructions": ["Whisk the oil and lemon juice together. Season to taste."]
+        }
+      ]
+    }
+  </script>
+</html>
